@@ -11,7 +11,7 @@ class CustonBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      onPressed: () {},
+      onPressed: onPress,
       icon: Icon(iconData),
     );
   }
