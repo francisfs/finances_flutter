@@ -49,36 +49,38 @@ class _DetailScreenState extends State<DetailScreen> {
               iconData: Icons.add_outlined)
         ],
       ),
-      body: Column(
-        children: [
-          Container(
-            margin: kMargin,
-            padding: kPadding,
-            height: 35.h,
-            width: 100.w,
-            decoration: BoxDecoration(
-              color: kPrimariColor,
-              borderRadius: kRadius,
-            ),
-            child: CustomPaint(
-              foregroundPainter: CirclePainter(
-                  bgColor: Colors.grey[200],
-                  lineColor: setupColor(percentage),
-                  percentage: percentage,
-                  width: 5.w),
-              child: Center(
-                child: Text(
-                  '\$${amountLeft.toStringAsFixed(2)}/\$${widget.typeModel!.maxAmount}',
-                  style: GoogleFonts.aubrey(
-                      fontWeight: FontWeight.w500,
-                      color: kSecundaryColor,
-                      fontSize: 22.sp,
-                      letterSpacing: 2.0),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              margin: kMargin,
+              padding: kPadding,
+              height: 35.h,
+              width: 100.w,
+              decoration: BoxDecoration(
+                color: kPrimariColor,
+                borderRadius: kRadius,
+              ),
+              child: CustomPaint(
+                foregroundPainter: CirclePainter(
+                    bgColor: Colors.grey[200],
+                    lineColor: setupColor(percentage),
+                    percentage: percentage,
+                    width: 5.w),
+                child: Center(
+                  child: Text(
+                    '\$${amountLeft.toStringAsFixed(2)}/\$${widget.typeModel!.maxAmount}',
+                    style: GoogleFonts.aubrey(
+                        fontWeight: FontWeight.w500,
+                        color: kSecundaryColor,
+                        fontSize: 22.sp,
+                        letterSpacing: 2.0),
+                  ),
                 ),
               ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }
