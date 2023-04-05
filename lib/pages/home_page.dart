@@ -2,7 +2,7 @@ import 'package:finances_flutter/constants.dart';
 import 'package:finances_flutter/data/data.dart';
 import 'package:finances_flutter/models/cost_model.dart';
 import 'package:finances_flutter/models/type_model.dart';
-import 'package:finances_flutter/pages/datail_screen.dart';
+import 'package:finances_flutter/pages/detail_screen.dart';
 import 'package:finances_flutter/widgets/custon_chart.dart';
 import 'package:finances_flutter/widgets/icon_btn.dart';
 import 'package:flutter/foundation.dart';
@@ -101,7 +101,7 @@ class _HomePageState extends State<HomePage> {
         padding: kPadding,
         decoration: BoxDecoration(
           color: kPrimariColor,
-          borderRadius: kRadius,
+          borderRadius: BorderRadius.circular(2.h),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

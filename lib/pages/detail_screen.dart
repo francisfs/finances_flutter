@@ -69,19 +69,63 @@ class _DetailScreenState extends State<DetailScreen> {
                     width: 5.w),
                 child: Center(
                   child: Text(
-                    '\$${amountLeft.toStringAsFixed(2)}/\$${widget.typeModel!.maxAmount}',
+                    '\$${amountLeft.toStringAsFixed(2)}/\$${widget.typeModel!.maxAmount!.toStringAsFixed(2)}',
                     style: GoogleFonts.aubrey(
                         fontWeight: FontWeight.w500,
                         color: kSecundaryColor,
-                        fontSize: 22.sp,
+                        fontSize: 16.5.sp,
                         letterSpacing: 2.0),
                   ),
                 ),
               ),
-            )
+            ),
+            _buildExpensiveList()
           ],
         ),
       ),
+    );
+  }
+
+  _buildExpensiveList() {
+    List<Widget> expensiveList = [];
+    widget.typeModel!.expenses!.forEach((CostModel expense) {
+      expensiveList.add(
+        Container(
+          margin: kMargin,
+          alignment: Alignment.center,
+          width: 100.w,
+          height: 10.h,
+          decoration:
+              BoxDecoration(color: kPrimariColor, borderRadius: kRadius),
+          child: Padding(
+            padding: kPadding,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  expense.name!,
+                  style: GoogleFonts.atma(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w600,
+                      color: kTextColor,
+                      letterSpacing: 1.0),
+                ),
+                Text(
+                  '\$${expense.cost!.toStringAsPrecision(2)}',
+                  style: GoogleFonts.atma(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w600,
+                      color: kSecundaryColor,
+                      letterSpacing: 1.0),
+                )
+              ],
+            ),
+          ),
+        ),
+      );
+    });
+    return Column(
+      children: expensiveList,
     );
   }
 }
