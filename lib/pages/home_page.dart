@@ -53,8 +53,7 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
           SliverList(
-            delegate:
-                SliverChildBuilderDelegate(childCount: 1, (context, index) {
+            delegate: SliverChildBuilderDelegate((context, index) {
               if (index == 0) {
                 return Container(
                   margin: EdgeInsets.only(
@@ -69,13 +68,13 @@ class _HomePageState extends State<HomePage> {
                 );
               } else {
                 final TypeModel typeModel = typeNames[index - 1];
-                double tAmountSpend = 1;
+                double tAmountSpend = 0;
                 typeModel.expenses!.forEach((CostModel expense) {
-                  tAmountSpend += expense.cost;
+                  tAmountSpend += expense.cost!;
                 });
                 return _buildCategories(typeModel, tAmountSpend);
               }
-            }),
+            }, childCount: 1 + typeNames.length),
           ),
         ],
       ),
