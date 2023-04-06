@@ -5,12 +5,12 @@ import 'package:finances_flutter/models/type_model.dart';
 final rand = Random();
 
 final List<double> weeklySpending = [
+  rand.nextDouble() * 1,
+  rand.nextDouble() * 10,
+  rand.nextDouble() * 10,
   rand.nextDouble() * 100,
   rand.nextDouble() * 100,
-  rand.nextDouble() * 100,
-  rand.nextDouble() * 100,
-  rand.nextDouble() * 100,
-  rand.nextDouble() * 100,
+  rand.nextDouble() * 10,
   rand.nextDouble() * 100,
 ];
 
@@ -20,40 +20,40 @@ _generateExpenses() {
     CostModel(name: 'Item 2', cost: rand.nextDouble() * 90),
     CostModel(name: 'Item 3', cost: rand.nextDouble() * 90),
     CostModel(name: 'Item 4', cost: rand.nextDouble() * 90),
-    CostModel(name: 'Item 5', cost: rand.nextDouble() * 90),
+    CostModel(name: 'Item 5', cost: rand.nextDouble() * 9),
   ];
   return costModel;
 }
 
 List<TypeModel> typeNames = [
   TypeModel(
-    name: 'House',
-    maxAmount: 2000,
+    name: 'Casa',
+    maxAmount: 1000,
     expenses: _generateExpenses(),
   ),
   TypeModel(
-    name: 'House',
-    maxAmount: 2000,
+    name: 'Viagens',
+    maxAmount: 2500,
     expenses: _generateExpenses(),
   ),
   TypeModel(
-    name: 'Clothing',
-    maxAmount: 2000,
+    name: 'Roupas',
+    maxAmount: 1200,
     expenses: _generateExpenses(),
   ),
   TypeModel(
-    name: 'Food',
-    maxAmount: 2000,
+    name: 'Delivery',
+    maxAmount: 1150,
     expenses: _generateExpenses(),
   ),
   TypeModel(
     name: 'Games',
-    maxAmount: 2000,
+    maxAmount: 1100,
     expenses: _generateExpenses(),
   ),
   TypeModel(
-    name: 'Travel',
-    maxAmount: 2000,
+    name: 'Gasolina',
+    maxAmount: 1270,
     expenses: _generateExpenses(),
   )
 ];

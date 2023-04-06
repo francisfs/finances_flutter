@@ -23,7 +23,7 @@ class CustonChart extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            'Weekly Spendin',
+            'Despesas Semanais',
             style: GoogleFonts.abel(
               fontSize: 13.sp,
               fontWeight: FontWeight.w600,
@@ -39,7 +39,7 @@ class CustonChart extends StatelessWidget {
             children: [
               CustonBtn(onPress: () {}, iconData: Icons.arrow_back_outlined),
               Text(
-                'Nov 10, 2020 - Nov 18, 2021',
+                '02 Abr 2023 - 08 Abr 2023',
                 style: GoogleFonts.atma(
                     fontSize: 13.sp,
                     fontWeight: FontWeight.w600,
@@ -56,37 +56,37 @@ class CustonChart extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               CustonBar(
-                day: 'Su',
+                day: 'Dom',
                 amountSpend: expenses![0],
                 expensive: monstExpensive,
               ),
               CustonBar(
-                day: 'Mo',
+                day: 'Seg',
                 amountSpend: expenses![1],
                 expensive: monstExpensive,
               ),
               CustonBar(
-                day: 'Tu',
+                day: 'Ter',
                 amountSpend: expenses![2],
                 expensive: monstExpensive,
               ),
               CustonBar(
-                day: 'We',
+                day: 'Qua',
                 amountSpend: expenses![3],
                 expensive: monstExpensive,
               ),
               CustonBar(
-                day: 'Th',
+                day: 'Qui',
                 amountSpend: expenses![4],
                 expensive: monstExpensive,
               ),
               CustonBar(
-                day: 'Fr',
+                day: 'Sex',
                 amountSpend: expenses![5],
                 expensive: monstExpensive,
               ),
               CustonBar(
-                day: 'Sa',
+                day: 'Sab',
                 amountSpend: expenses![6],
                 expensive: monstExpensive,
               ),

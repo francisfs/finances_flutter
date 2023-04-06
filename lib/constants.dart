@@ -11,7 +11,7 @@ final kPadding = EdgeInsets.all(2.h);
 final kRadius = BorderRadius.circular(2.h);
 
 Color setupColor(double percentage) {
-  if (percentage >= 0.50) {
+  if (percentage >= 0.60) {
     return kScafoldColor;
   } else if (percentage >= 0.25) {
     return Colors.orange;

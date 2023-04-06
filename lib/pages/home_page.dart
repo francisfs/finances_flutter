@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
             flexibleSpace: FlexibleSpaceBar(
               centerTitle: true,
               title: Text(
-                'My Buget',
+                'Minhas Finanças',
                 style: GoogleFonts.aBeeZee(
                     fontSize: 12.sp,
                     letterSpacing: 1.0,
