@@ -1,4 +1,3 @@
-import 'package:finances_flutter/pages/home_page.dart';
 import 'package:finances_flutter/widgets/icon_btn.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -6,7 +5,7 @@ import 'package:finances_flutter/constants.dart';
 import 'package:sizer/sizer.dart';
 
 class CustonChart extends StatelessWidget {
-  CustonChart({super.key, required this.expenses});
+  const CustonChart({super.key, required this.expenses});
   final List<double>? expenses;
 
   @override
@@ -23,7 +22,7 @@ class CustonChart extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            'Weekly Spendin',
+            'Despesas Semanais',
             style: GoogleFonts.abel(
               fontSize: 13.sp,
               fontWeight: FontWeight.w600,
@@ -39,7 +38,7 @@ class CustonChart extends StatelessWidget {
             children: [
               CustonBtn(onPress: () {}, iconData: Icons.arrow_back_outlined),
               Text(
-                'Nov 10, 2020 - Nov 18, 2021',
+                '02 Abr 2023 - 08 Abr 2023',
                 style: GoogleFonts.atma(
                     fontSize: 13.sp,
                     fontWeight: FontWeight.w600,
@@ -56,39 +55,39 @@ class CustonChart extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               CustonBar(
-                day: 'Su',
-                amountSpend: expenses![0],
-                expensive: monstExpensive,
+                dia: 'Dom',
+                valorGasto: expenses![0],
+                maisCaro: monstExpensive,
               ),
               CustonBar(
-                day: 'Mo',
-                amountSpend: expenses![1],
-                expensive: monstExpensive,
+                dia: 'Seg',
+                valorGasto: expenses![1],
+                maisCaro: monstExpensive,
               ),
               CustonBar(
-                day: 'Tu',
-                amountSpend: expenses![2],
-                expensive: monstExpensive,
+                dia: 'Ter',
+                valorGasto: expenses![2],
+                maisCaro: monstExpensive,
               ),
               CustonBar(
-                day: 'We',
-                amountSpend: expenses![3],
-                expensive: monstExpensive,
+                dia: 'Qua',
+                valorGasto: expenses![3],
+                maisCaro: monstExpensive,
               ),
               CustonBar(
-                day: 'Th',
-                amountSpend: expenses![4],
-                expensive: monstExpensive,
+                dia: 'Qui',
+                valorGasto: expenses![4],
+                maisCaro: monstExpensive,
               ),
               CustonBar(
-                day: 'Fr',
-                amountSpend: expenses![5],
-                expensive: monstExpensive,
+                dia: 'Sex',
+                valorGasto: expenses![5],
+                maisCaro: monstExpensive,
               ),
               CustonBar(
-                day: 'Sa',
-                amountSpend: expenses![6],
-                expensive: monstExpensive,
+                dia: 'Sab',
+                valorGasto: expenses![6],
+                maisCaro: monstExpensive,
               ),
             ],
           )
@@ -101,22 +100,22 @@ class CustonChart extends StatelessWidget {
 class CustonBar extends StatelessWidget {
   CustonBar(
       {super.key,
-      required this.day,
-      required this.expensive,
-      required this.amountSpend});
+      required this.dia,
+      required this.maisCaro,
+      required this.valorGasto});
 
-  final String day;
-  final double amountSpend;
-  final double expensive;
+  final String dia;
+  final double valorGasto;
+  final double maisCaro;
   final double _maxBarHeght = 20.h;
 
   @override
   Widget build(BuildContext context) {
-    final barHeight = amountSpend / expensive * _maxBarHeght;
+    final barHeight = valorGasto / maisCaro * _maxBarHeght;
     return Column(
       children: [
         Text(
-          '\$${amountSpend.toStringAsFixed(2)}',
+          '\$${valorGasto.toStringAsFixed(2)}',
           style: GoogleFonts.aubrey(
               fontSize: 11.sp, fontWeight: FontWeight.w500, color: kTextColor),
         ),
@@ -135,7 +134,7 @@ class CustonBar extends StatelessWidget {
           height: 1.h,
         ),
         Text(
-          day,
+          dia,
           style: GoogleFonts.aubrey(
               fontSize: 11.sp, fontWeight: FontWeight.w600, color: kTextColor),
         ),

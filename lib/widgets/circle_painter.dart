@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 class CirclePainter extends CustomPainter {
   final Color? bgColor;
   final Color? lineColor;
-  final double? percentage;
+  final double? porcentagem;
   final double? width;
-  CirclePainter({this.bgColor, this.lineColor, this.percentage, this.width});
+  CirclePainter({this.bgColor, this.lineColor, this.porcentagem, this.width});
   @override
   void paint(Canvas canvas, Size size) {
     Paint bgLine = Paint()
@@ -25,7 +25,7 @@ class CirclePainter extends CustomPainter {
     Offset center = Offset(size.width / 2, size.height / 2);
     double radius = min(size.width / 2, size.height / 2);
     canvas.drawCircle(center, radius, bgLine);
-    double sweepAngle = 2 * pi * percentage!;
+    double sweepAngle = 2 * pi * porcentagem!;
     canvas.drawArc(Rect.fromCircle(center: center, radius: radius), -pi / 2,
         sweepAngle, false, fullLine);
   }
