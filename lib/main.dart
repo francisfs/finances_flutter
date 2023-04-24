@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'constants.dart';
-import 'package:intl/intl.dart';
 import 'pages/tela_principal.dart';
 
 void main() {
@@ -13,17 +12,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Sizer(builder: (context, Orientation, DeviceType) {
+    return Sizer(builder: (context, orientation, deviceType) {
       return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Gerenciador de Despesas',
         theme: ThemeData(
             scaffoldBackgroundColor: kScafoldColor,
-            appBarTheme: AppBarTheme(
+            appBarTheme: const AppBarTheme(
               backgroundColor: kPrimariColor,
               iconTheme: IconThemeData(size: 23, color: kSecundaryColor),
             ),
-            iconTheme: IconThemeData(size: 23, color: kSecundaryColor)),
+            iconTheme: const IconThemeData(size: 23, color: kSecundaryColor)),
         home: const HomePage(),
       );
     });

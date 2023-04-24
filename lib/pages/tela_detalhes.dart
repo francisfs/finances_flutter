@@ -1,5 +1,4 @@
 import 'package:finances_flutter/constants.dart';
-import 'package:finances_flutter/models/custo_model.dart';
 import 'package:finances_flutter/widgets/icon_btn.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -19,9 +18,9 @@ class _DetailScreenState extends State<DetailScreen> {
   @override
   Widget build(BuildContext context) {
     double valorGastoTotal = 0;
-    widget.tipoModel!.despesas!.forEach((CustoModel expenses) {
-      valorGastoTotal += expenses.custo!;
-    });
+    for (var expenses in widget.tipoModel!.despesas!) {
+      valorGastoTotal += expenses.custo;
+    }
     final double amountLeft = widget.tipoModel!.valorMaximo! - valorGastoTotal;
     final double porcentagem = amountLeft / widget.tipoModel!.valorMaximo!;
     return Scaffold(
@@ -87,7 +86,7 @@ class _DetailScreenState extends State<DetailScreen> {
 
   _buildExpensiveList() {
     List<Widget> expensiveList = [];
-    widget.tipoModel!.despesas!.forEach((CustoModel expense) {
+    for (var expense in widget.tipoModel!.despesas!) {
       expensiveList.add(
         Container(
           margin: kMargin,
@@ -110,7 +109,7 @@ class _DetailScreenState extends State<DetailScreen> {
                       letterSpacing: 1.0),
                 ),
                 Text(
-                  '\$${expense.custo!.toStringAsPrecision(2)}',
+                  '\$${expense.custo.toStringAsPrecision(2)}',
                   style: GoogleFonts.atma(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w600,
@@ -122,7 +121,7 @@ class _DetailScreenState extends State<DetailScreen> {
           ),
         ),
       );
-    });
+    }
     return Column(
       children: expensiveList,
     );

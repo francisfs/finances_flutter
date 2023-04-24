@@ -1,14 +1,10 @@
 import 'package:finances_flutter/constants.dart';
 import 'package:finances_flutter/data/data.dart';
-import 'package:finances_flutter/models/custo_model.dart';
 import 'package:finances_flutter/models/tipo_model.dart';
 import 'package:finances_flutter/pages/tela_detalhes.dart';
 import 'package:finances_flutter/widgets/custon_chart.dart';
 import 'package:finances_flutter/widgets/icon_btn.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 
@@ -70,9 +66,9 @@ class _HomePageState extends State<HomePage> {
               } else {
                 final CategoriaModel tipoModel = categoriasNomes[index - 1];
                 double valorGastoTotal = 0;
-                tipoModel.despesas!.forEach((CustoModel despesa) {
-                  valorGastoTotal += despesa.custo!;
-                });
+                for (var despesa in tipoModel.despesas!) {
+                  valorGastoTotal += despesa.custo;
+                }
                 return _buildCategories(tipoModel, valorGastoTotal);
               }
             }, childCount: 1 + categoriasNomes.length),
@@ -134,8 +130,9 @@ class _HomePageState extends State<HomePage> {
             ),
             LayoutBuilder(builder: (context, constraints) {
               final double maxBarWidth = constraints.maxWidth;
-              final double percentage = (categoria.valorMaximo! - valorGastoTotal) /
-                  categoria.valorMaximo!;
+              final double percentage =
+                  (categoria.valorMaximo! - valorGastoTotal) /
+                      categoria.valorMaximo!;
               double width = percentage * maxBarWidth;
               if (width < 0) {
                 width = 0;

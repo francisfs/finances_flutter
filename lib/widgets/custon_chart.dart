@@ -1,4 +1,3 @@
-import 'package:finances_flutter/pages/tela_principal.dart';
 import 'package:finances_flutter/widgets/icon_btn.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -6,7 +5,7 @@ import 'package:finances_flutter/constants.dart';
 import 'package:sizer/sizer.dart';
 
 class CustonChart extends StatelessWidget {
-  CustonChart({super.key, required this.expenses});
+  const CustonChart({super.key, required this.expenses});
   final List<double>? expenses;
 
   @override
