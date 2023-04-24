@@ -1,59 +1,61 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'dart:math';
-import 'package:finances_flutter/models/cost_model.dart';
-import 'package:finances_flutter/models/type_model.dart';
+import 'package:finances_flutter/models/custo_model.dart';
+import 'package:finances_flutter/models/tipo_model.dart';
 
+FirebaseDatabase database = FirebaseDatabase.instance;
 final rand = Random();
 
-final List<double> weeklySpending = [
-  rand.nextDouble() * 1,
-  rand.nextDouble() * 10,
-  rand.nextDouble() * 10,
+final List<double> gastosSemanais = [
   rand.nextDouble() * 100,
   rand.nextDouble() * 100,
-  rand.nextDouble() * 10,
+  rand.nextDouble() * 100,
+  rand.nextDouble() * 100,
+  rand.nextDouble() * 100,
+  rand.nextDouble() * 100,
   rand.nextDouble() * 100,
 ];
 
-_generateExpenses() {
-  List<CostModel> costModel = [
-    CostModel(name: 'Item 1', cost: rand.nextDouble() * 90),
-    CostModel(name: 'Item 2', cost: rand.nextDouble() * 90),
-    CostModel(name: 'Item 3', cost: rand.nextDouble() * 90),
-    CostModel(name: 'Item 4', cost: rand.nextDouble() * 90),
-    CostModel(name: 'Item 5', cost: rand.nextDouble() * 9),
+_gerarDespesas() {
+  List<CustoModel> custoModel = [
+    CustoModel(nome: 'Item 1', custo: rand.nextDouble() * 90),
+    CustoModel(nome: 'Item 2', custo: rand.nextDouble() * 90),
+    CustoModel(nome: 'Item 3', custo: rand.nextDouble() * 90),
+    CustoModel(nome: 'Item 4', custo: rand.nextDouble() * 90),
+    CustoModel(nome: 'Item 5', custo: rand.nextDouble() * 90),
   ];
-  return costModel;
+  return custoModel;
 }
 
-List<TypeModel> typeNames = [
-  TypeModel(
-    name: 'Casa',
-    maxAmount: 1000,
-    expenses: _generateExpenses(),
+List<CategoriaModel> categoriasNomes = [
+  CategoriaModel(
+    nome: 'Casa',
+    valorMaximo: 1000,
+    despesas: _gerarDespesas(),
   ),
-  TypeModel(
-    name: 'Viagens',
-    maxAmount: 2500,
-    expenses: _generateExpenses(),
+  CategoriaModel(
+    nome: 'Viagens',
+    valorMaximo: 2500,
+    despesas: _gerarDespesas(),
   ),
-  TypeModel(
-    name: 'Roupas',
-    maxAmount: 1200,
-    expenses: _generateExpenses(),
+  CategoriaModel(
+    nome: 'Roupas',
+    valorMaximo: 1200,
+    despesas: _gerarDespesas(),
   ),
-  TypeModel(
-    name: 'Delivery',
-    maxAmount: 1150,
-    expenses: _generateExpenses(),
+  CategoriaModel(
+    nome: 'Delivery',
+    valorMaximo: 1150,
+    despesas: _gerarDespesas(),
   ),
-  TypeModel(
-    name: 'Games',
-    maxAmount: 1100,
-    expenses: _generateExpenses(),
+  CategoriaModel(
+    nome: 'Games',
+    valorMaximo: 1100,
+    despesas: _gerarDespesas(),
   ),
-  TypeModel(
-    name: 'Gasolina',
-    maxAmount: 1270,
-    expenses: _generateExpenses(),
+  CategoriaModel(
+    nome: 'Gasolina',
+    valorMaximo: 1270,
+    despesas: _gerarDespesas(),
   )
 ];

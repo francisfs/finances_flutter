@@ -1,16 +1,15 @@
 import 'package:finances_flutter/constants.dart';
-import 'package:finances_flutter/models/cost_model.dart';
-import 'package:finances_flutter/pages/home_page.dart';
+import 'package:finances_flutter/models/custo_model.dart';
 import 'package:finances_flutter/widgets/icon_btn.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
-import '../models/type_model.dart';
+import '../models/tipo_model.dart';
 import '../widgets/circle_painter.dart';
 
 class DetailScreen extends StatefulWidget {
-  final TypeModel? typeModel;
-  const DetailScreen({super.key, this.typeModel});
+  final CategoriaModel? tipoModel;
+  const DetailScreen({super.key, this.tipoModel});
 
   @override
   State<DetailScreen> createState() => _DetailScreenState();
@@ -19,12 +18,12 @@ class DetailScreen extends StatefulWidget {
 class _DetailScreenState extends State<DetailScreen> {
   @override
   Widget build(BuildContext context) {
-    double tAmountSpend = 0;
-    widget.typeModel!.expenses!.forEach((CostModel expenses) {
-      tAmountSpend += expenses.cost!;
+    double valorGastoTotal = 0;
+    widget.tipoModel!.despesas!.forEach((CustoModel expenses) {
+      valorGastoTotal += expenses.custo!;
     });
-    final double amountLeft = widget.typeModel!.maxAmount! - tAmountSpend;
-    final double percentage = amountLeft / widget.typeModel!.maxAmount!;
+    final double amountLeft = widget.tipoModel!.valorMaximo! - valorGastoTotal;
+    final double porcentagem = amountLeft / widget.tipoModel!.valorMaximo!;
     return Scaffold(
       appBar: AppBar(
         leading: CustonBtn(
@@ -34,7 +33,7 @@ class _DetailScreenState extends State<DetailScreen> {
           iconData: Icons.arrow_back_outlined,
         ),
         title: Text(
-          widget.typeModel!.name!,
+          widget.tipoModel!.nome!,
           style: GoogleFonts.aBeeZee(
               fontSize: 12.sp,
               letterSpacing: 1.0,
@@ -64,12 +63,12 @@ class _DetailScreenState extends State<DetailScreen> {
               child: CustomPaint(
                 foregroundPainter: CirclePainter(
                     bgColor: Colors.grey[200],
-                    lineColor: setupColor(percentage),
-                    percentage: percentage,
+                    lineColor: setupColor(porcentagem),
+                    porcentagem: porcentagem,
                     width: 5.w),
                 child: Center(
                   child: Text(
-                    '\$${amountLeft.toStringAsFixed(2)}/\$${widget.typeModel!.maxAmount!.toStringAsFixed(2)}',
+                    '\$${amountLeft.toStringAsFixed(2)}/\$${widget.tipoModel!.valorMaximo!.toStringAsFixed(2)}',
                     style: GoogleFonts.aubrey(
                         fontWeight: FontWeight.w500,
                         color: kSecundaryColor,
@@ -88,7 +87,7 @@ class _DetailScreenState extends State<DetailScreen> {
 
   _buildExpensiveList() {
     List<Widget> expensiveList = [];
-    widget.typeModel!.expenses!.forEach((CostModel expense) {
+    widget.tipoModel!.despesas!.forEach((CustoModel expense) {
       expensiveList.add(
         Container(
           margin: kMargin,
@@ -103,7 +102,7 @@ class _DetailScreenState extends State<DetailScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  expense.name!,
+                  expense.nome!,
                   style: GoogleFonts.atma(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w600,
@@ -111,7 +110,7 @@ class _DetailScreenState extends State<DetailScreen> {
                       letterSpacing: 1.0),
                 ),
                 Text(
-                  '\$${expense.cost!.toStringAsPrecision(2)}',
+                  '\$${expense.custo!.toStringAsPrecision(2)}',
                   style: GoogleFonts.atma(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w600,

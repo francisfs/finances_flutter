@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'constants.dart';
 import 'package:intl/intl.dart';
-
-
-import 'pages/home_page.dart';
+import 'pages/tela_principal.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +16,7 @@ class MyApp extends StatelessWidget {
     return Sizer(builder: (context, Orientation, DeviceType) {
       return MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Expense Manager',
+        title: 'Gerenciador de Despesas',
         theme: ThemeData(
             scaffoldBackgroundColor: kScafoldColor,
             appBarTheme: AppBarTheme(

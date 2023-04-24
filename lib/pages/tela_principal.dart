@@ -1,8 +1,8 @@
 import 'package:finances_flutter/constants.dart';
 import 'package:finances_flutter/data/data.dart';
-import 'package:finances_flutter/models/cost_model.dart';
-import 'package:finances_flutter/models/type_model.dart';
-import 'package:finances_flutter/pages/detail_screen.dart';
+import 'package:finances_flutter/models/custo_model.dart';
+import 'package:finances_flutter/models/tipo_model.dart';
+import 'package:finances_flutter/pages/tela_detalhes.dart';
 import 'package:finances_flutter/widgets/custon_chart.dart';
 import 'package:finances_flutter/widgets/icon_btn.dart';
 import 'package:flutter/foundation.dart';
@@ -64,32 +64,32 @@ class _HomePageState extends State<HomePage> {
                     borderRadius: BorderRadius.circular(3.h),
                   ),
                   child: CustonChart(
-                    expenses: weeklySpending,
+                    expenses: gastosSemanais,
                   ),
                 );
               } else {
-                final TypeModel typeModel = typeNames[index - 1];
-                double tAmountSpend = 0;
-                typeModel.expenses!.forEach((CostModel expense) {
-                  tAmountSpend += expense.cost!;
+                final CategoriaModel tipoModel = categoriasNomes[index - 1];
+                double valorGastoTotal = 0;
+                tipoModel.despesas!.forEach((CustoModel despesa) {
+                  valorGastoTotal += despesa.custo!;
                 });
-                return _buildCategories(typeModel, tAmountSpend);
+                return _buildCategories(tipoModel, valorGastoTotal);
               }
-            }, childCount: 1 + typeNames.length),
+            }, childCount: 1 + categoriasNomes.length),
           ),
         ],
       ),
     );
   }
 
-  _buildCategories(TypeModel category, double tAmountSpend) {
+  _buildCategories(CategoriaModel categoria, double valorGastoTotal) {
     return GestureDetector(
       onTap: () {
         Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => DetailScreen(
-              typeModel: category,
+              tipoModel: categoria,
             ),
           ),
         );
@@ -110,7 +110,7 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  category.name!,
+                  categoria.nome!,
                   style: GoogleFonts.abel(
                     fontSize: 14.sp,
                     color: kTextColor,
@@ -119,7 +119,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 Text(
-                  '\$${(category.maxAmount! - tAmountSpend).toStringAsFixed(2)} / \$${category.maxAmount!.toStringAsFixed(2)}',
+                  '\$${(categoria.valorMaximo! - valorGastoTotal).toStringAsFixed(2)} / \$${categoria.valorMaximo!.toStringAsFixed(2)}',
                   style: GoogleFonts.atma(
                     fontSize: 14.sp,
                     color: kTextColor,
@@ -134,8 +134,8 @@ class _HomePageState extends State<HomePage> {
             ),
             LayoutBuilder(builder: (context, constraints) {
               final double maxBarWidth = constraints.maxWidth;
-              final double percentage =
-                  (category.maxAmount! - tAmountSpend) / category.maxAmount!;
+              final double percentage = (categoria.valorMaximo! - valorGastoTotal) /
+                  categoria.valorMaximo!;
               double width = percentage * maxBarWidth;
               if (width < 0) {
                 width = 0;
