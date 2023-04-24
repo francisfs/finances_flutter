@@ -1,8 +1,8 @@
 import 'package:finances_flutter/constants.dart';
 import 'package:finances_flutter/data/data.dart';
-import 'package:finances_flutter/models/tipo_model.dart';
+import 'package:finances_flutter/models/categoria_despesa_model.dart';
 import 'package:finances_flutter/pages/tela_detalhes.dart';
-import 'package:finances_flutter/widgets/custon_chart.dart';
+import 'package:finances_flutter/widgets/despesas_semanais.dart';
 import 'package:finances_flutter/widgets/icon_btn.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';

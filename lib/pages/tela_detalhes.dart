@@ -3,7 +3,7 @@ import 'package:finances_flutter/widgets/icon_btn.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
-import '../models/tipo_model.dart';
+import '../models/categoria_despesa_model.dart';
 import '../widgets/circle_painter.dart';
 
 class DetailScreen extends StatefulWidget {

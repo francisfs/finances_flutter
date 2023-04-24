@@ -1,7 +1,7 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'dart:math';
 import 'package:finances_flutter/models/custo_model.dart';
-import 'package:finances_flutter/models/tipo_model.dart';
+import 'package:finances_flutter/models/categoria_despesa_model.dart';
 
 FirebaseDatabase database = FirebaseDatabase.instance;
 final rand = Random();
@@ -35,7 +35,7 @@ List<CategoriaModel> categoriasNomes = [
   ),
   CategoriaModel(
     nome: 'Viagens',
-    valorMaximo: 2500,
+    valorMaximo: 1500,
     despesas: _gerarDespesas(),
   ),
   CategoriaModel(
@@ -45,7 +45,7 @@ List<CategoriaModel> categoriasNomes = [
   ),
   CategoriaModel(
     nome: 'Delivery',
-    valorMaximo: 1150,
+    valorMaximo: 750,
     despesas: _gerarDespesas(),
   ),
   CategoriaModel(
