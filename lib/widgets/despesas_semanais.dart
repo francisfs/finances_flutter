@@ -115,7 +115,7 @@ class CustonBar extends StatelessWidget {
     return Column(
       children: [
         Text(
-          '\$${valorGasto.toStringAsFixed(2)}',
+          'R\$ ${valorGasto.toStringAsFixed(2)}',
           style: GoogleFonts.aubrey(
               fontSize: 11.sp, fontWeight: FontWeight.w500, color: kTextColor),
         ),

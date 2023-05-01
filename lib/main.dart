@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'constants.dart';
-import 'pages/tela_principal.dart';
+import 'pages/home_page.dart';
 
 void main() {
   runApp(const MyApp());

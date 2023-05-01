@@ -67,7 +67,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     width: 5.w),
                 child: Center(
                   child: Text(
-                    '\$${amountLeft.toStringAsFixed(2)}/\$${widget.tipoModel!.valorMaximo!.toStringAsFixed(2)}',
+                    "R\$ ${amountLeft.toStringAsFixed(2)}/R\$ ${widget.tipoModel!.valorMaximo!.toStringAsFixed(2)}",
                     style: GoogleFonts.aubrey(
                         fontWeight: FontWeight.w500,
                         color: kSecundaryColor,
@@ -109,7 +109,7 @@ class _DetailScreenState extends State<DetailScreen> {
                       letterSpacing: 1.0),
                 ),
                 Text(
-                  '\$${expense.custo.toStringAsPrecision(2)}',
+                  'R\$ ${expense.custo.toStringAsPrecision(2)}',
                   style: GoogleFonts.atma(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w600,

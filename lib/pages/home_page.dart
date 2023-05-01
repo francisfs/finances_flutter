@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 
+import 'nova_categoria_view.dart';
+
 //https://www.youtube.com/watch?v=MJFz6K8lXyA&list=PPSV
 
 class HomePage extends StatefulWidget {
@@ -44,7 +46,9 @@ class _HomePageState extends State<HomePage> {
             ),
             actions: [
               CustonBtn(
-                onPress: () {},
+                onPress: () {
+                  Navigator.pop(context, const NovaCategoriaView());
+                },
                 iconData: Icons.add_outlined,
               ),
             ],
@@ -115,7 +119,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 Text(
-                  '\$${(categoria.valorMaximo! - valorGastoTotal).toStringAsFixed(2)} / \$${categoria.valorMaximo!.toStringAsFixed(2)}',
+                  'R\$ ${(categoria.valorMaximo! - valorGastoTotal).toStringAsFixed(2)} / \$${categoria.valorMaximo!.toStringAsFixed(2)}',
                   style: GoogleFonts.atma(
                     fontSize: 14.sp,
                     color: kTextColor,
