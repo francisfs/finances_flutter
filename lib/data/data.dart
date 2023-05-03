@@ -1,10 +1,23 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'dart:math';
 import 'package:finances_flutter/models/custo_model.dart';
 import 'package:finances_flutter/models/categoria_despesa_model.dart';
 
-FirebaseDatabase database = FirebaseDatabase.instance;
+FirebaseFirestore db = FirebaseFirestore.instance;
 final rand = Random();
+
+Future<List> getCategoria() async {
+  List categorias = [];
+  QuerySnapshot querySnapshot = await db.collection('categoria').get();
+
+  for (var doc in querySnapshot.docs) {
+    categorias.add(doc.data());
+  }
+  return  categorias;
+  
+  
+}
 
 final List<double> gastosSemanais = [
   rand.nextDouble() * 100,

@@ -47,7 +47,9 @@ class _HomePageState extends State<HomePage> {
             actions: [
               CustonBtn(
                 onPress: () {
-                  Navigator.pop(context, const NovaCategoriaView());
+                  //Navigator.pop(context, const NovaCategoriaView());
+                  Navigator.pushNamed(context, 'addCategoria');
+                  getCategoria();
                 },
                 iconData: Icons.add_outlined,
               ),

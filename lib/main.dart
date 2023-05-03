@@ -1,3 +1,5 @@
+import 'package:finances_flutter/pages/nova_categoria_view.dart';
+import 'package:finances_flutter/pages/novo_item_view.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'constants.dart';
@@ -29,6 +31,11 @@ class MyApp extends StatelessWidget {
             ),
             iconTheme: const IconThemeData(size: 23, color: kSecundaryColor)),
         home: const HomePage(),
+        routes: {
+          '/': (context) => const HomePage(),
+          'addCategoria': (context) => const NovaCategoriaView(),
+          'addItem': (context) => const NovoItemView()
+        },
       );
     });
   }
